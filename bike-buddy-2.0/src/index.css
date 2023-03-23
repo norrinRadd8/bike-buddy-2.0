@@ -29,3 +29,8 @@ header {
  text-decoration: none;
 }
 
+h1 {
+  display: flex;
+  justify-content: center;
+}
+
