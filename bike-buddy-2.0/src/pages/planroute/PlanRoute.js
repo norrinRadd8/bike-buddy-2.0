@@ -11,16 +11,6 @@ const PlanRoute = () => {
     zoom: 10,
   });
 
-  const handleViewportChange = (viewport) => {
-    // Update the viewport state immediately
-    setViewport(viewport);
-
-    // Wait for 500 milliseconds before executing the rest of the code
-    setTimeout(() => {
-      console.log("Viewport changed:", viewport);
-    }, 500);
-  };
-
   return (
     <ReactMapGl
       {...viewport}
@@ -31,7 +21,7 @@ const PlanRoute = () => {
       interactiveLayerIds={["my-layer-id"]}
       dragPan={true}
       scrollZoom={true}
-      onViewportChange={handleViewportChange}
+      onMove={(evt) => setViewport(evt.viewport)}
     >
       <NavigationControl />
 
