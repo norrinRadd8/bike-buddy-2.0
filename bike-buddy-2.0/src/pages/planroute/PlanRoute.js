@@ -25,8 +25,8 @@ const PlanRoute = () => {
     >
       <NavigationControl />
 
-      <Marker latitude={51.5072} longitude={0.1276}>
-        <div>I'M HERE</div>
+      <Marker latitude={51.509865} longitude={-0.118092}>
+        <div>Hello There!!</div>
       </Marker>
     </ReactMapGl>
   );
