@@ -29,9 +29,17 @@ header {
  text-decoration: none;
 }
 
+.nav a {
+  padding: 20px;
+  text-decoration: none;
+
+}
+
 h1 {
   display: flex;
   justify-content: center;
+  padding: 20px;
 }
+/**/
 /**/
 /**/
