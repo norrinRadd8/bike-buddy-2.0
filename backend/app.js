@@ -1,4 +1,4 @@
-// || ---- Run "nodemon app.js" to start the local server on localhost:5000
+// || ---- Run "npm start" to start the local server on localhost:5000
 
 const express = require("express");
 // const mongoose = require("mongoose");
