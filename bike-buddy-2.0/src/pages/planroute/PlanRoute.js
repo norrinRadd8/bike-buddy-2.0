@@ -1,35 +1,49 @@
 import "./planroute.css";
 import "mapbox-gl/dist/mapbox-gl.css";
-import ReactMapGl, { Marker, NavigationControl } from "react-map-gl";
-import { useState } from "react";
+import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
+import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
+import React, { useEffect } from "react";
+import mapboxgl from "mapbox-gl";
 
-const PlanRoute = () => {
-  const MAPBOX_TOKEN = process.env.REACT_APP_MAPBOX_TOKEN;
-  const [viewport, setViewport] = useState({
-    latitude: 51.5072,
-    longitude: 0.1276,
-    zoom: 10,
-  });
+const accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
+
+function PlanRoute() {
+  useEffect(() => {
+    mapboxgl.accessToken = accessToken;
+
+    const map = new mapboxgl.Map({
+      container: "map",
+      style: "mapbox://styles/hal888/clfl4vcde00eq01o4hy3yymbs",
+      center: [-0.118092, 51.509865],
+      zoom: 13,
+    });
+
+    // CREATED GEOCODER SEARCH BAR
+    const geocoderContainer = document.createElement("div");
+    geocoderContainer.className = "geocoder-container";
+
+    const mapContainer = map.getContainer();
+    mapContainer.insertBefore(geocoderContainer, mapContainer.firstChild);
+
+    // GEOCODER CONTROL IN THE CONTAINER
+    const geocoder = new MapboxGeocoder({
+      accessToken: mapboxgl.accessToken,
+      mapboxgl: mapboxgl,
+      placeholder: "Search for a location",
+    });
+    geocoderContainer.appendChild(geocoder.onAdd(map));
+
+    return () => {
+      map.remove();
+    };
+  }, []);
 
   return (
-    <ReactMapGl
-      {...viewport}
-      width="100vw"
-      height="100vh"
-      mapboxAccessToken={MAPBOX_TOKEN}
-      mapStyle="mapbox://styles/hal888/clfl4vcde00eq01o4hy3yymbs"
-      interactiveLayerIds={["my-layer-id"]}
-      dragPan={true}
-      scrollZoom={true}
-      onMove={(evt) => setViewport(evt.viewport)}
-    >
-      <NavigationControl />
-
-      <Marker latitude={51.509865} longitude={-0.118092}>
-        <div>Hello There!!</div>
-      </Marker>
-    </ReactMapGl>
+    <div
+      id="map"
+      style={{ position: "absolute", top: 80, bottom: 0, width: "100%" }}
+    />
   );
-};
+}
 
 export default PlanRoute;
