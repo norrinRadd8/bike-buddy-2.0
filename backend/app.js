@@ -3,6 +3,7 @@ import * as dotenv from "dotenv";
 import express, { json, urlencoded } from "express";
 import mongoose from "mongoose";
 import rideRoutes from "./router/rides.js";
+import userRoutes from "./router/user.js";
 
 const app = express();
 app.use(json());
@@ -18,6 +19,7 @@ app.use((req, res, next) => {
 });
 
 app.use("/api/rides", rideRoutes);
+app.use("/api/user", userRoutes);
 
 mongoose
   .connect(MONGO_URI)

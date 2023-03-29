@@ -1,26 +1,17 @@
 import { Router } from "express";
+import { getRides, getRide, createRide, deleteRide, updateRide } from "../controllers/rideController.js";
 
 const router = Router();
 
 router
-  .get("/", (req, res) => {
-    res.json({ dummy: "GET all rides" });
-  })
+  .get("/", getRides)
 
-  .get("/:id", (req, res) => {
-    res.json({ dummy: "GET a ride" });
-  })
+  .get("/:id", getRide)
 
-  .post("/", (req, res) => {
-    res.json({ dummy: "POST a ride" });
-  })
+  .post("/", createRide)
 
-  .delete("/:id", (req, res) => {
-    res.json({ dummy: "DELETE a ride" });
-  })
+  .delete("/:id", deleteRide)
 
-  .patch("/:id", (req, res) => {
-    res.json({ dummy: "UPDATE a ride" });
-  });
+  .patch("/:id", updateRide);
 
 export default router;
