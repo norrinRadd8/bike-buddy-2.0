@@ -40,17 +40,21 @@ h1 {
   justify-content: center;
   padding: 20px;
 }
+
+
 /* --- INSTRUCTIONS --- */
 #instructions {
-  position: absolute;
+  position: relative;
   margin: 20px;
+  margin-left: 10px;
   width: 25%;
   top: 0;
   bottom: 20%;
-  padding: 20px;
-  background-color: #fff;
+  padding-left: 50px;
+  background-color: #ffffffab;
   overflow-y: scroll;
   font-family: sans-serif;
+  border-radius: 12px;
 }
 
 /**/
