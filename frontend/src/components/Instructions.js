@@ -4,8 +4,8 @@ import "../../src/index.css";
 function Instructions({ data }) {
   const steps = data?.legs?.[0]?.steps ?? [];
 
-  const tripInstructions = steps.map((step) => (
-    <li>{step.maneuver.instruction}</li>
+  const tripInstructions = steps.map((step, index) => (
+    <li key={index}>{step.maneuver.instruction}</li>
   ));
 
   return (
