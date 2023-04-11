@@ -1,0 +1,27 @@
+.signInForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.signInForm input {
+    border-radius: 3px;
+    margin: 10px 0px;
+    padding: 5px;
+}
+
+.signInForm button {
+    width: 150px;
+    height: 30px;
+    margin-top: 10px;
+    background-color: black;
+    border: none;
+    color: white;
+    border-radius: 3px;
+}
+
+.signInForm button:hover {
+    background-color: darkslategray;
+    cursor: pointer;
+}
