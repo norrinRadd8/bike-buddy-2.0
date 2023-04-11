@@ -18,7 +18,7 @@ function PlanRoute() {
       container: "map",
       style: "mapbox://styles/hal888/clfl4vcde00eq01o4hy3yymbs",
       center: [-0.118092, 51.509865],
-      zoom: 13,
+      zoom: 15,
     });
     const start = [-0.118092, 51.509865];
 
@@ -84,7 +84,7 @@ function PlanRoute() {
       // Add starting point to the map
       map.addLayer({
         id: "point",
-        type: "circle",
+        type: "symbol",
         source: {
           type: "geojson",
           data: {
@@ -101,11 +101,13 @@ function PlanRoute() {
             ],
           },
         },
-        paint: {
-          "circle-radius": 10,
-          "circle-color": "#3887be",
+        layout: {
+          "icon-image": "marker",
+          "icon-size": 10.5,
+          "icon-allow-overlap": true,
         },
       });
+
       map.on("click", (event) => {
         const coords = Object.keys(event.lngLat).map(
           (key) => event.lngLat[key]
