@@ -103,7 +103,7 @@ function PlanRoute() {
         },
         layout: {
           "icon-image": "marker",
-          "icon-size": 10.5,
+          "icon-size": 1.5,
           "icon-allow-overlap": true,
         },
       });
